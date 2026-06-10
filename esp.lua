@@ -116,7 +116,7 @@ OpenButton.TextScaled = true
 OpenButton.Parent = ScreenGui
 
 local MainFrame = Instance.new("Frame")
-MainFrame.Size = UDim2.new(0,220,0,120)
+MainFrame.Size = UDim2.new(0,220,0,180)
 MainFrame.Position = UDim2.new(0,90,0.5,-60)
 MainFrame.BackgroundColor3 = Color3.fromRGB(35,35,35)
 MainFrame.Visible = false
@@ -132,6 +132,14 @@ ESPButton.Text = "ESP : ON"
 ESPButton.BackgroundColor3 = Color3.fromRGB(50,150,50)
 ESPButton.TextColor3 = Color3.new(1,1,1)
 ESPButton.Parent = MainFrame
+
+local ShootAllButton = Instance.new("TextButton")
+ShootAllButton.Size = UDim2.new(0.9,0,0,40)
+ShootAllButton.Position = UDim2.new(0.05,0,0.55,0)
+ShootAllButton.Text = "SHOOT ALL"
+ShootAllButton.BackgroundColor3 = Color3.fromRGB(200,50,50)
+ShootAllButton.TextColor3 = Color3.new(1,1,1)
+ShootAllButton.Parent = MainFrame
 
 local ESPCorner = Instance.new("UICorner")
 ESPCorner.Parent = ESPButton
@@ -159,5 +167,9 @@ ESPButton.MouseButton1Click:Connect(function()
 	RefreshESP()
 
 end)
+ ShootAllButton.MouseButton1Click:Connect(function()
 
+	ReplicatedStorage.ShootAllEvent:FireServer()
+
+end)
 RefreshESP()
